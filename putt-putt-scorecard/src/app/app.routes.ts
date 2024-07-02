@@ -5,7 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', component: HomeComponent }
+    { path: '**', component: HomeComponent }    // TODO: Create page not found component
 ];
 
 @NgModule ({
