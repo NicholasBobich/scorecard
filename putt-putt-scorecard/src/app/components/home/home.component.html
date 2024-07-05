@@ -1,7 +1,9 @@
-<div class="container">
+<div class="page-container">
     <div id="menu-container">
-        <p-button>PLAY</p-button>
-        <p-button>ADD</p-button>
-        <p-button>HISTORY</p-button>
+        <p-button routerLink="/play" routerLinkActive="active">PLAY</p-button>
+        <p-button routerLink="/add" routerLinkActive="active">ADD</p-button>
+        <p-button routerLink="/history" routerLinkActive="active">HISTORY</p-button>
     </div>
 </div>
+
+<router-outlet />
