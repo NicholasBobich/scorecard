@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pre-form-container {
+    flex-direction: column;
+}
+
+/* #pre-form-menu-container {
+
+} */
+
+#pre-form-menu-container p-button {
+    padding: 0px 10px 0px 10px;
+}
