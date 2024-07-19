@@ -1,17 +1,36 @@
-.container {
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#page-container {
+    flex-direction: column;
 }
 
 #pre-form-container {
     flex-direction: column;
 }
 
-/* #pre-form-menu-container {
-
-} */
-
 #pre-form-menu-container p-button {
     padding: 0px 10px 0px 10px;
+}
+
+#form-container {
+    font-size: 20px;
+    padding-top: 25px;
+}
+
+#form-container input {
+    width: 250px;
+    height: 50px;
+}
+
+#form-container p-floatlabel {
+    display: block;
+    padding: 15px 0px 15px 0px;
+}
+
+#form-container p-button {
+    padding-top: 15px;
 }

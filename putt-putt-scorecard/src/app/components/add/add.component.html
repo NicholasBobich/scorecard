@@ -1,15 +1,26 @@
-<div *ngIf="showOptions" id="pre-form-container" class="container">
-    <h2>Would you like to add a player or a course?</h2>
-    <div id="pre-form-menu-container" class="container">
-        <p-button *ngFor="let option of options" (click)="onOptionSelected(option)">{{ option.name }}</p-button>
+<div id="page-container" class="center">
+    <img src="/assets/Logov2.png" width="400" height="400">
+    <div *ngIf="showOptions" id="pre-form-container" class="center">
+        <h2>Would you like to add a player or a course?</h2>
+        <div id="pre-form-menu-container" class="center">
+            <p-button *ngFor="let option of options" (click)="onOptionSelected(option)">{{ option.name }}</p-button>
+        </div>
     </div>
-</div>
-
-<div *ngIf="!showOptions" id="form-container" class="container">
-    <div *ngIf="selectedOption?.id == 1">
-        <p>Add player works!</p>
-    </div>
-    <div *ngIf="selectedOption?.id == 2">
-        <p>Add course works!</p>            
+    
+    <div *ngIf="!showOptions" id="form-container" class="center">
+        <div *ngIf="selectedOption?.id == 1">
+            <p-floatLabel>
+                <input pInputText type="text" id="firstName" [(ngModel)]="firstName" />
+                <label for="firstName">First Name</label>
+            </p-floatLabel>
+            <p-floatLabel>
+                <input pInputText type="text" id="lastName" [(ngModel)]="lastName" />
+                <label for="lastName">Last Name</label>
+            </p-floatLabel>
+            <p-button class="center">ADD</p-button>
+        </div>
+        <div *ngIf="selectedOption?.id == 2">
+            <p>Add course works!</p>            
+        </div>
     </div>
 </div>

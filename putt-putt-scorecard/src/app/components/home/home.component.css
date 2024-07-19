@@ -11,6 +11,7 @@
 #main-menu-container {
     flex-direction: column;
     width: 400px;
+    padding-top: 10px;
 }
 
 #main-menu-container p-button {
