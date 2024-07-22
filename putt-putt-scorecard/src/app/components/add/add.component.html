@@ -17,7 +17,8 @@
                 <input pInputText type="text" id="lastName" [(ngModel)]="lastName" />
                 <label for="lastName">Last Name</label>
             </p-floatLabel>
-            <p-button class="center">ADD</p-button>
+            <p-button class="center" (click)="addPlayer()">ADD</p-button>
+            <p-toast key="addPlayerSuccess" position="bottom-center" />
         </div>
         <div *ngIf="selectedOption?.id == 2">
             <p>Add course works!</p>            

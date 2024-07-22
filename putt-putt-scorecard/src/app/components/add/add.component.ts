@@ -4,6 +4,9 @@ import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { FormsModule } from '@angular/forms';
+import { ToastModule } from 'primeng/toast';
+import { PlayerService } from '../../services/player.service';
+import { MessageService } from 'primeng/api';
 
 interface Option {
   id: number,
@@ -13,9 +16,10 @@ interface Option {
 @Component({
   selector: 'app-add',
   standalone: true,
-  imports: [ButtonModule, NgFor, NgIf, NgSwitch, NgSwitchCase, FloatLabelModule, InputTextModule, FormsModule],
+  imports: [ButtonModule, NgFor, NgIf, NgSwitch, NgSwitchCase, FloatLabelModule, InputTextModule, FormsModule, ToastModule],
   templateUrl: './add.component.html',
-  styleUrl: './add.component.css'
+  styleUrl: './add.component.css',
+  providers: [MessageService]
 })
 export class AddComponent implements OnInit {
   // Pre-Form
@@ -31,6 +35,8 @@ export class AddComponent implements OnInit {
   firstName: string = "";
   lastName: string = "";
 
+  constructor(private playerService: PlayerService, private messageService: MessageService) { }
+
   ngOnInit(): void {
     
   }
@@ -39,5 +45,31 @@ export class AddComponent implements OnInit {
     this.selectedOption = option;
     this.showOptions = false;
     this.selectedOptionChange.emit(option);
+  }
+
+  addPlayer() {
+    this.playerService.addPlayer({ "firstName": this.firstName, "lastName": this.lastName }).subscribe({
+      next: (result: any) => { 
+        this.addPlayerSuccess() 
+      },
+      error: (error: any) => { 
+        this.addPlayerError(error) 
+      } 
+    });
+  }
+
+  addPlayerSuccess() {
+    this.successToastCenter();
+    
+    this.firstName = "";
+    this.lastName = "";
+  }
+
+  successToastCenter() {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: `${this.firstName} ${this.lastName} has been added`, key: 'addPlayerSuccess', life: 3000 });
+  }
+
+  addPlayerError(error: any) {
+
   }
 }
