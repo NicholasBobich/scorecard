@@ -59,17 +59,21 @@ export class AddComponent implements OnInit {
   }
 
   addPlayerSuccess() {
-    this.successToastCenter();
+    this.playerSuccessToast();
     
     this.firstName = "";
     this.lastName = "";
   }
 
-  successToastCenter() {
+  playerSuccessToast() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: `${this.firstName} ${this.lastName} has been added`, key: 'addPlayerSuccess', life: 3000 });
   }
 
   addPlayerError(error: any) {
+    this.playerErrorToast();
+  }
 
+  playerErrorToast() {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: `Failed to add player`, key: 'addPlayerError', life: 3000 });
   }
 }
