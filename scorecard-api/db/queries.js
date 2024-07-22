@@ -23,7 +23,21 @@ const addPlayer = async (firstName, lastName) => {
 
 
 // ========================================= COURSE QUERIES =========================================
+const addCourse = async (courseName, city, stateAbbr, parByHole) => {
+    let sql = `INSERT INTO ${process.env.PG_SCHEMA}.courses (course_name, city, state_abbr, par_by_hole) VALUES ('${courseName}', '${city}', '${stateAbbr}', ${parByHole})`;
 
+    const client = await pool.connect();
+
+    try {
+        await client.query(sql);
+        return { success: true }
+    } catch (error) {
+        console.error("Error during addCourse insertion => Error:", error.message);
+        throw new Error("Failed to add course");
+    } finally {
+        client.release();
+    }
+}
 
 
 
@@ -33,5 +47,6 @@ const addPlayer = async (firstName, lastName) => {
 
 
 module.exports = {
-    addPlayer
+    addPlayer,
+    addCourse
 }
