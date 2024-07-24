@@ -38,7 +38,7 @@
                 <label for="stateAbbr">State</label>
             </p-floatLabel>
             <span *ngFor="let p of parByHole; let i = index; trackBy: trackByHole" class="center" id="input-number-container">
-                <label class="mb-2 block font-bold" id="input-number-label" for="{{i}}">Hole {{i + 1}}</label>
+                <label class="mb-2 block font-bold" id="input-number-label" for="{{i}}">Hole {{i + 1}} Par</label>
                 <p-inputNumber 
                     [showButtons]="true" 
                     buttonLayout="horizontal"
@@ -54,6 +54,8 @@
                     [(ngModel)]="p.par" />
             </span>
             <p-button class="center" (click)="addCourse()">ADD</p-button>
+            <p-toast key="addCourseSuccess" position="bottom-center" />
+            <p-toast key="addCourseError" position="bottom-center" />
         </div>
     </div>
 </div>

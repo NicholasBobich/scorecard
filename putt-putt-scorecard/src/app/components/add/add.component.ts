@@ -39,7 +39,7 @@ export class AddComponent implements OnInit {
   firstName: string = "";
   lastName: string = "";
 
-  // Add course form
+  // Add Course form
   courseName: string = "";
   city: string = "";
   states: string[] = this.locationService.getStateAbbr();
@@ -68,7 +68,7 @@ export class AddComponent implements OnInit {
   constructor(private playerService: PlayerService, private messageService: MessageService, private locationService: LocationService, private courseService: CourseService) { }
 
   ngOnInit(): void {
-    // this.states = this.locationService.getStateAbbr();
+    
   }
 
   onOptionSelected(option: Option) {
