@@ -93,6 +93,8 @@ export class AddComponent implements OnInit {
     
     this.firstName = "";
     this.lastName = "";
+
+    window.scrollTo(0, 0);
   }
 
   playerSuccessToast() {
@@ -153,6 +155,8 @@ export class AddComponent implements OnInit {
       { "hole": 17, "par": 2 },
       { "hole": 18, "par": 2 }
     ];
+
+    window.scrollTo(0, 0);
   }
 
   courseSuccessToast() {

@@ -18,8 +18,8 @@
                 <label for="lastName">Last Name</label>
             </p-floatLabel>
             <p-button class="center" (click)="addPlayer()">ADD</p-button>
-            <p-toast key="addPlayerSuccess" position="bottom-center" />
-            <p-toast key="addPlayerError" position="bottom-center" />
+            <p-toast key="addPlayerSuccess" position="top-right" />
+            <p-toast key="addPlayerError" position="top-right" />
         </div>
         <div *ngIf="selectedOption?.id == 2">
             <p-floatLabel>
@@ -54,8 +54,8 @@
                     [(ngModel)]="p.par" />
             </span>
             <p-button class="center" (click)="addCourse()">ADD</p-button>
-            <p-toast key="addCourseSuccess" position="bottom-center" />
-            <p-toast key="addCourseError" position="bottom-center" />
+            <p-toast key="addCourseSuccess" position="top-right" />
+            <p-toast key="addCourseError" position="top-right" />
         </div>
     </div>
 </div>
