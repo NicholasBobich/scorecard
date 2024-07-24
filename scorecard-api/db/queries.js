@@ -24,7 +24,7 @@ const addPlayer = async (firstName, lastName) => {
 
 // ========================================= COURSE QUERIES =========================================
 const addCourse = async (courseName, city, stateAbbr, parByHole) => {
-    let sql = `INSERT INTO ${process.env.PG_SCHEMA}.courses (course_name, city, state_abbr, par_by_hole) VALUES ('${courseName}', '${city}', '${stateAbbr}', ${parByHole})`;
+    let sql = `INSERT INTO ${process.env.PG_SCHEMA}.courses (course_name, city, state_abbr, par_by_hole) VALUES ('${courseName}', '${city}', '${stateAbbr}', ARRAY[${parByHole}])`;
 
     const client = await pool.connect();
 
