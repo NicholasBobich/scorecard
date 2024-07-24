@@ -22,7 +22,38 @@
             <p-toast key="addPlayerError" position="bottom-center" />
         </div>
         <div *ngIf="selectedOption?.id == 2">
-            <p>Add course works!</p>            
+            <p-floatLabel>
+                <input pInputText type="text" id="courseName" [(ngModel)]="courseName" />
+                <label for="courseName">Course Name</label>
+            </p-floatLabel>
+            <p-floatLabel>
+                <input pInputText type="text" id="city" [(ngModel)]="city" />
+                <label for="city">City</label>
+            </p-floatLabel>
+            <p-floatLabel>
+                <p-dropdown 
+                    [options]="states"
+                    [(ngModel)]="selectedState"
+                    id="stateAbbr" />
+                <label for="stateAbbr">State</label>
+            </p-floatLabel>
+            <span *ngFor="let p of parByHole; let i = index; trackBy: trackByHole" class="center" id="input-number-container">
+                <label class="mb-2 block font-bold" id="input-number-label" for="{{i}}">Hole {{i + 1}}</label>
+                <p-inputNumber 
+                    [showButtons]="true" 
+                    buttonLayout="horizontal"
+                    inputId="{{i}}"
+                    spinnerMode="horizontal"
+                    decrementButtonClass="p-button-secondary"
+                    incrementButtonClass="p-button-secondary"
+                    incrementButtonIcon="pi pi-plus"
+                    decrementButtonIcon="pi pi-minus"
+                    size="5"
+                    min="1"
+                    [inputStyle]="{'text-align': 'center'}"
+                    [(ngModel)]="p.par" />
+            </span>
+            <p-button class="center" (click)="addCourse()">ADD</p-button>
         </div>
     </div>
 </div>
