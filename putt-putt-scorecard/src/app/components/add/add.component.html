@@ -34,7 +34,7 @@
                 <p-dropdown 
                     [options]="states"
                     [(ngModel)]="selectedState"
-                    id="stateAbbr" />
+                    inputId="stateAbbr" />
                 <label for="stateAbbr">State</label>
             </p-floatLabel>
             <span *ngFor="let p of parByHole; let i = index; trackBy: trackByHole" class="center" id="input-number-container">
