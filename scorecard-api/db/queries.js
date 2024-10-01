@@ -20,6 +20,22 @@ const addPlayer = async (firstName, lastName) => {
     }
 }
 
+const getPlayers = async () => {
+    let sql = `SELECT * FROM ${process.env.PG_SCHEMA}.players`;
+
+    const client = await pool.connect();
+
+    try {
+        let players = await client.query(sql);
+        return players.rows;
+    } catch (error) {
+        console.error("Error during getPlayers => Error:", error.message);
+        throw new Error("Failed to get players");
+    } finally {
+        client.release();
+    }
+}
+
 
 
 // ========================================= COURSE QUERIES =========================================
@@ -64,6 +80,8 @@ const getCourses = async () => {
 
 module.exports = {
     addPlayer,
+    getPlayers,
+    
     addCourse,
     getCourses
 }

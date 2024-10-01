@@ -14,6 +14,18 @@ const addPlayer = async (req, res) => {
     }
 }
 
+const getPlayers = async (req, res) => {
+    try {
+        let result = await queries.getPlayers();
+
+        res.json({ success: true, players: result });
+    } catch (error) {
+        console.error("Error:", error.message);
+        res.json({ success: false, error: error.message });
+    }
+}
+
 module.exports = {
-    addPlayer
+    addPlayer,
+    getPlayers
 }
