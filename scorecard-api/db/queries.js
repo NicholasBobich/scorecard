@@ -39,6 +39,22 @@ const addCourse = async (courseName, city, stateAbbr, parByHole) => {
     }
 }
 
+const getCourses = async () => {
+    let sql = `SELECT * FROM ${process.env.PG_SCHEMA}.courses`;
+
+    const client = await pool.connect();
+
+    try {
+        let courses = await client.query(sql);
+        return courses.rows;
+    } catch (error) {
+        console.error("Error during getCourses => Error:", error.message);
+        throw new Error("Failed to get courses");
+    } finally {
+        client.release();
+    }
+}
+
 
 
 // ========================================= SCORE QUERIES =========================================
@@ -48,5 +64,6 @@ const addCourse = async (courseName, city, stateAbbr, parByHole) => {
 
 module.exports = {
     addPlayer,
-    addCourse
+    addCourse,
+    getCourses
 }
