@@ -1,0 +1,17 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#page-container {
+    flex-direction: column;
+    width: 600px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+#pre-play-container {
+    flex-direction: column;
+    margin-bottom: 30px;
+}
