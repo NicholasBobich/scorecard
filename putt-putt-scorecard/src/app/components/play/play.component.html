@@ -2,18 +2,28 @@
     <div id="page-container" class="center">
         <img style="margin-top: 30px; border-radius: 10px;" id="logo" src="/assets/Logov2.png" width="400" height="400">
         <div *ngIf="prePlay" id="pre-play-container" class="center">
-            <h4 style="text-align: center;">1) Select a course you've added, or leave this blank.</h4>
+            <h4 style="text-align: center; padding: 10px 0px 10px 0px;">1) Select a course you've added, or use the default course.</h4>
             <p-floatLabel>
                 <p-dropdown [options]="courses" optionLabel="course_name" [(ngModel)]="selectedCourse" inputId="course" >
                     <ng-template let-course pTemplate="item">
                         <div>
                             <span>{{ course.course_name }}</span><br>
-                            <span style="font-size: small; color: grey;">{{ course.city }}</span>
+                            <span *ngIf="course.course_name !== 'Default'" style="font-size: small; color: grey;">{{ course.city }}, {{ course.state_abbr }}</span>
                         </div>
                     </ng-template>
                 </p-dropdown>
                 <label for="course">Course</label>
             </p-floatLabel>
+            <h4 style="text-align: center; padding: 10px 0px 10px 0px;">2) Who's playing today?</h4>
+            <p-multiSelect [options]="players" [(ngModel)]="selectedPlayers" placeholder="Select Players" (onChange)="updateSelectedPlayers()" optionLabel="full_name" filterBy="first_name" filterPlaceHolder="Search" >
+                <!-- <ng-template let-player pTemplate="item">
+                        <span>{{ player.first_name }} {{ player.last_name }}</span>
+                </ng-template> -->
+                <!-- <ng-template let-selectedPlayer pTemplate="selectedItems">
+                    <span *ngFor="let selectedPlayer of selectedPlayers">{{ selectedPlayer.first_name }} {{ selectedPlayer.last_name }} </span>
+                    <span *ngIf="!selectedPlayers || selectedPlayers.length === 0">Select Players</span>
+                </ng-template> -->
+            </p-multiSelect>
         </div>
     </div>
 </div>
