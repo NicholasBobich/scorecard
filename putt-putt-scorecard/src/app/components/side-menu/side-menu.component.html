@@ -1,0 +1,4 @@
+<p-sidebar [(visible)]="sidebarVisible" position="left">
+    <p-menu [model]="items"></p-menu>
+</p-sidebar>
+<p-button (onClick)="sidebarVisible = !sidebarVisible" icon="pi pi-bars" size="large"></p-button>
