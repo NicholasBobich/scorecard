@@ -59,4 +59,8 @@ export class PlayComponent {
   updateSelectedPlayers() {
     console.log(this.selectedPlayers);
   }
+
+  startPlaying() {
+    this.prePlay = false;
+  }
 }

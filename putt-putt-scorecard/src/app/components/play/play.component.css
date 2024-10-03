@@ -15,3 +15,7 @@
     flex-direction: column;
     margin-bottom: 30px;
 }
+
+#pre-play-container p-button {
+    padding-top: 40px;
+}
