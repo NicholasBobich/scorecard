@@ -4,7 +4,7 @@
         <div *ngIf="prePlay" id="pre-play-container" class="center">
             <h4 style="text-align: center; padding: 10px 0px 10px 0px;">1) Select a course you've added, or use the default course.</h4>
             <p-floatLabel>
-                <p-dropdown [options]="courses" optionLabel="course_name" [(ngModel)]="selectedCourse" inputId="course" required >
+                <p-dropdown [options]="courses" optionLabel="course_name" [(ngModel)]="selectedCourse" inputId="course" filter="true" filterBy="course_name" filterPlaceholder="Search" required >
                     <ng-template let-course pTemplate="item">
                         <div>
                             <span>{{ course.course_name }}</span><br>
