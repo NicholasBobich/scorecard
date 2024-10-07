@@ -2,9 +2,9 @@
     <div id="page-container" class="center">
         <img style="margin-top: 30px; border-radius: 10px;" id="logo" src="/assets/Logov2.png" width="400" height="400">
         <div *ngIf="showOptions" id="pre-form-container" class="center">
-            <h2>Would you like to add a player or a course?</h2>
+            <h4>Would you like to add a player or a course?</h4>
             <div id="pre-form-menu-container" class="center">
-                <p-button *ngFor="let option of options" (click)="onOptionSelected(option)">{{ option.name }}</p-button>
+                <p-button *ngFor="let option of options" (click)="onOptionSelected(option)" label="{{ option.name }}"></p-button>
             </div>
         </div>
         
@@ -18,7 +18,7 @@
                     <input pInputText type="text" id="lastName" [(ngModel)]="lastName" />
                     <label for="lastName">Last Name</label>
                 </p-floatLabel>
-                <p-button class="center" (click)="addPlayer()">ADD</p-button>
+                <p-button class="center" (click)="addPlayer()" label="ADD"></p-button>
                 <p-toast key="addPlayerSuccess" position="top-right" />
                 <p-toast key="addPlayerError" position="top-right" />
             </div>
@@ -54,7 +54,7 @@
                         [inputStyle]="{'text-align': 'center'}"
                         [(ngModel)]="p.par" />
                 </span>
-                <p-button class="center" (click)="addCourse()">ADD</p-button>
+                <p-button class="center" (click)="addCourse()" label="ADD"></p-button>
                 <p-toast key="addCourseSuccess" position="top-right" />
                 <p-toast key="addCourseError" position="top-right" />
             </div>
