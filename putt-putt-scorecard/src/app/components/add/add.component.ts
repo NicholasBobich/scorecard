@@ -1,4 +1,4 @@
-import { NgFor, NgIf, NgSwitch, NgSwitchCase } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
@@ -20,7 +20,7 @@ interface Option {
 @Component({
   selector: 'app-add',
   standalone: true,
-  imports: [ButtonModule, NgFor, NgIf, NgSwitch, NgSwitchCase, FloatLabelModule, InputTextModule, FormsModule, ToastModule, InputNumberModule, DropdownModule],
+  imports: [ButtonModule, NgFor, NgIf, FloatLabelModule, InputTextModule, FormsModule, ToastModule, InputNumberModule, DropdownModule],
   templateUrl: './add.component.html',
   styleUrl: './add.component.css',
   providers: [MessageService]

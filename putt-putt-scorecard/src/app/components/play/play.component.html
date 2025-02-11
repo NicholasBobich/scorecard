@@ -1,10 +1,11 @@
 <div class="center">
     <div id="page-container" class="center">
         <img style="margin-top: 30px; border-radius: 10px;" id="logo" src="/assets/Logov2.png" width="400" height="400">
+        <!-- Pre-Play -->
         <div *ngIf="prePlay" id="pre-play-container" class="center">
             <h4 style="text-align: center; padding: 10px 0px 10px 0px;">1) Select a course you've added, or use the default course.</h4>
             <p-floatLabel>
-                <p-dropdown [options]="courses" optionLabel="course_name" [(ngModel)]="selectedCourse" inputId="course" filter="true" filterBy="course_name" filterPlaceholder="Search" required >
+                <p-dropdown [options]="courses" optionLabel="course_name" [(ngModel)]="selectedCourse"  (onChange)="updateSelectedCourse()" inputId="course" filter="true" filterBy="course_name" filterPlaceholder="Search" required >
                     <ng-template let-course pTemplate="item">
                         <div>
                             <span>{{ course.course_name }}</span><br>
@@ -16,22 +17,19 @@
             </p-floatLabel>
             <h4 style="text-align: center; padding: 10px 0px 10px 0px;">2) Who's playing today?</h4>
             <p-floatLabel>
-                <p-multiSelect [options]="players" [(ngModel)]="selectedPlayers" (onChange)="updateSelectedPlayers()" optionLabel="full_name" filterBy="first_name" filterPlaceHolder="Search" required >
-                    <!-- <ng-template let-player pTemplate="item">
-                            <span>{{ player.first_name }} {{ player.last_name }}</span>
-                    </ng-template> -->
-                    <!-- <ng-template let-selectedPlayer pTemplate="selectedItems">
-                        <span *ngFor="let selectedPlayer of selectedPlayers">{{ selectedPlayer.first_name }} {{ selectedPlayer.last_name }} </span>
-                        <span *ngIf="!selectedPlayers || selectedPlayers.length === 0">Select Players</span>
-                    </ng-template> -->
-                </p-multiSelect>
+                <p-multiSelect [options]="players" [(ngModel)]="selectedPlayers" (onChange)="updateSelectedPlayers()" optionLabel="full_name" filterBy="first_name" filterPlaceHolder="Search" required ></p-multiSelect>
                 <label for="float-label">Players</label>
             </p-floatLabel>
             <p-button class="center" (click)="startPlaying()" label="START"></p-button>
         </div>
-
+        <!-- In-Play -->
         <div *ngIf="!prePlay" id="in-play-container" class="center">
-
+            <div class="center" id="hole-nav">
+                <p-button class="center" (click)="prevHole()" icon="pi pi-angle-left"></p-button>
+                <h2 style="padding-right: 5px;">Hole</h2>
+                <p-dropdown [options]="holes" [(ngModel)]="selectedHole" />
+                <p-button class="center" (click)="nextHole()" icon="pi pi-angle-right"></p-button>
+            </div>
         </div>
     </div>
 </div>

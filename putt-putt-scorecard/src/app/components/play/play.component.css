@@ -19,3 +19,16 @@
 #pre-play-container p-button {
     padding-top: 40px;
 }
+
+#in-play-container {
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+
+#hole-nav {
+    flex-direction: row;
+}
+
+#hole-nav p-button {
+    padding: 0px 10px 0px 10px;
+}
