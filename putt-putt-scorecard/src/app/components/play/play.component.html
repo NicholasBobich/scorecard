@@ -17,7 +17,7 @@
             </p-floatLabel>
             <h4 style="text-align: center; padding: 10px 0px 10px 0px;">2) Who's playing today?</h4>
             <p-floatLabel>
-                <p-multiSelect [options]="players" [(ngModel)]="selectedPlayers" (onChange)="updateSelectedPlayers()" optionLabel="full_name" filterBy="first_name" filterPlaceHolder="Search" required ></p-multiSelect>
+                <p-multiSelect [options]="players" [(ngModel)]="selectedPlayers" (onChange)="updateSelectedPlayers()" optionLabel="full_name" filter="true" filterBy="full_name" filterPlaceHolder="Search" required ></p-multiSelect>
                 <label for="float-label">Players</label>
             </p-floatLabel>
             <p-button class="center" (click)="startPlaying()" label="START"></p-button>
